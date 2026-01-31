@@ -356,6 +356,46 @@
         
         // Simulation de progression (remplacé automatiquement par GMod)
         setInterval(updateProgress, 100);
+  <!-- YouTube Background Music (Audio Only) -->
+<div id="yt-music-player"></div>
+
+<script>
+    // Charger l'API YouTube
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('yt-music-player', {
+            height: '0',
+            width: '0',
+            videoId: 'ZjHpUtTtj1I', // ID de la vidéo
+            playerVars: {
+                autoplay: 1,
+                loop: 1,
+                playlist: 'ZjHpUtTtj1I', // obligatoire pour loop
+                controls: 0,
+                showinfo: 0,
+                modestbranding: 1,
+                fs: 0,
+                rel: 0
+            },
+            events: {
+                onReady: function (event) {
+                    event.target.setVolume(40); // 🔉 volume (0-100)
+                    event.target.playVideo();
+                }
+            }
+        });
+    }
+</script>
+  
+    
+    
+    
     </script>
 </body>
 </html>
